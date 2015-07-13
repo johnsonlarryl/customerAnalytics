@@ -80,3 +80,5 @@ POST customeranalytics/customers/_bulk
 {"index":{"_id": 3}}
 {"servicetype" : "tv", "servicestartdate" :"20130625", "serviceenddate" : "20150625", "monthlydues" : "55:00" }
 
+
+http://maps.googleapis.com/maps/api/geocode/json?address=75024&sensor=false
