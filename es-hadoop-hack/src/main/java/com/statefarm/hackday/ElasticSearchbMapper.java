@@ -25,7 +25,7 @@ public class ElasticSearchbMapper extends Mapper<LongWritable, Text, Text, MapWr
 	  public void map(LongWritable key, Text value, Context context)
 	      throws IOException, InterruptedException {
 		// value is tab separated values: word, total occurrences
-		String[] split = value.toString().split(",");
+		String[] split = value.toString().split("\t");
 		
 		if (split != null && split.length == 8) {
 			 try { 
@@ -43,9 +43,5 @@ public class ElasticSearchbMapper extends Mapper<LongWritable, Text, Text, MapWr
 				  // track how many liines it affects (see the getCounter() method on Context for
 			 }
 		}
-	}
-	
-	private Text getStartDate(long startDate) {
-		
 	}
 }

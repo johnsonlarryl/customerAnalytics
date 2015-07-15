@@ -58,7 +58,7 @@ public class StubDriver extends Configured implements Tool {
     FileInputFormat.addInputPath(job, new Path(inputputFile));
     FileOutputFormat.setOutputPath(job, new Path(outputFile));
     
-    job.setMapperClass(StubMapper.class);
+    job.setMapperClass(AOAMapper.class);
     job.setCombinerClass(StubReducer.class);
     job.setReducerClass(StubReducer.class);
     
