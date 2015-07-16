@@ -1,12 +1,14 @@
 package com.statefarm.hackday;
 import java.io.IOException;
 
+import org.apache.hadoop.io.BooleanWritable;
 import org.apache.hadoop.io.DoubleWritable;
 import org.apache.hadoop.io.IntWritable;
 import org.apache.hadoop.io.LongWritable;
 import org.apache.hadoop.io.MapWritable;
 import org.apache.hadoop.io.Text;
 import org.apache.hadoop.mapreduce.Mapper;
+
 import com.statefarm.hackday.constant.InputFields;
 
 public class AOAMapper extends Mapper<LongWritable, Text, Text, MapWritable> {
@@ -18,7 +20,7 @@ public class AOAMapper extends Mapper<LongWritable, Text, Text, MapWritable> {
 			// customerId, startDate, endDate, lastContact, monthlyPremium, customerType, zipCode, policyType
 			String[] split = value.toString().split(",");
 	  
-			if (split != null && split.length == 8) {
+			if (split != null && split.length == 10) {
 
 				MapWritable map = convertToHadoopMap(split);
 				
@@ -44,6 +46,9 @@ public class AOAMapper extends Mapper<LongWritable, Text, Text, MapWritable> {
 		map.put(InputFields.MONTHLY_PREMIUM, new DoubleWritable(Double.parseDouble(data[4])));
 		map.put(InputFields.ZIPCODE, new IntWritable(Integer.parseInt(data[6])));
 		map.put(InputFields.POLICYTYPE, new Text(data[7]));
+		map.put(InputFields.RETURNING_CUSTOMER, new BooleanWritable(Boolean.parseBoolean(data[8])));
+		map.put(InputFields.ACTIVE_CUSTOMER, new BooleanWritable(Boolean.parseBoolean(data[9])));
+		
 		
 		return map;
 		
