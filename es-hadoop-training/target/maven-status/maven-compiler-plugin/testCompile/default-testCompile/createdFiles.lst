@@ -1,0 +1,6 @@
+com/statefarm/es_hadoop/SumReducer.class
+com/statefarm/es_hadoop/WordMapper.class
+com/statefarm/es_hadoop/AppTest.class
+com/statefarm/es_hadoop/TestWordCount.class
+com/statefarm/es_hadoop/StubTest.class
+com/statefarm/es_hadoop/StubTest$OutputMapRecord.class

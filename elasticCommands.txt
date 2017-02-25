@@ -1,0 +1,84 @@
+
+localhost:9200/customersdata/
+
+
+{ 
+
+"mappings" : {
+        "customers" : {
+            "_source" : { "enabled" : false },
+            "properties" : {
+                "servicetype" : { "type" : "string", "index" : "not_analyzed" },
+                "servicestartdate" : { "type" : "date", "index" : "not_analyzed" }
+                "serviceenddate" : { "type" : "date", "index" : "not_analyzed" }
+		"loyalty" : { "type" : "integer", "index" : "not_analyzed" }
+		
+                "monthlydues" : { "type" : "double", "index" : "not_analyzed" }
+                "active" : { "type" : "boolean", "index" : "not_analyzed" }
+		"lastcustomercontact" : { "type" : "date", "index" : "not_analyzed" }
+
+            }
+        }
+    }
+    
+}
+
+
+
+
+POST customeranalytics_new/
+{ 
+"mappings" : {
+        "customers" : {
+            "_source" : { "enabled" : false },
+            "properties" : {
+                "servicetype" : { "type" : "string", "index" : "not_analyzed" },
+                "servicestartdate" : { "type" : "date", "format": "basic_date" , "index" : "not_analyzed" },
+                "serviceenddate" : { "type" : "date", "format": "basic_date" ,"index" : "not_analyzed" },
+                "monthlydues" : { "type" : "double", "index" : "not_analyzed" },
+                "active" : { "type" : "boolean", "index" : "not_analyzed" },
+		"loyalty" : { "type" : "integer", "index" : "not_analyzed" },
+		"location":{"type":"geo_point"}
+
+            }
+        }
+    }
+    
+}
+
+POST customeranalytics_new/
+{ 
+"mappings" : {
+        "customers" : {
+            "_source" : { "enabled" : false },
+            "properties" : {
+                "servicetype" : { "type" : "string", "index" : "not_analyzed" },
+                "servicestartdate" : { "type" : "date", "format": "basic_date" , "index" : "not_analyzed" },
+                "serviceenddate" : { "type" : "date", "format": "basic_date" ,"index" : "not_analyzed" },
+                "monthlydues" : { "type" : "double", "index" : "not_analyzed" },
+                "active" : { "type" : "boolean", "index" : "not_analyzed" },
+		"loyalty" : { "type" : "integer", "index" : "not_analyzed" },
+		"location":{"type":"geo_point"}
+
+            }
+        }
+    }
+    
+}
+
+POST location/_search
+{"query" : {"match_all" : {}} } \n
+\n
+
+
+POST customeranalytics/customers/_bulk
+
+{"index":{"_id": 1}}
+{"servicetype" : "cable", "servicestartdate" :"20140625", "serviceenddate" : "20150625", "monthlydues" : "55:00" }
+{"index":{"_id": 2}}
+{"servicetype" : "cable", "servicestartdate" :"20120625", "serviceenddate" : "20150625", "monthlydues" : "55:00" }
+{"index":{"_id": 3}}
+{"servicetype" : "tv", "servicestartdate" :"20130625", "serviceenddate" : "20150625", "monthlydues" : "55:00" }
+
+
+http://maps.googleapis.com/maps/api/geocode/json?address=75024&sensor=false

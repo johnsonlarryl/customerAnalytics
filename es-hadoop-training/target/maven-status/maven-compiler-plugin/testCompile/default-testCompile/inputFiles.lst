@@ -1,0 +1,5 @@
+/home/training/workspace/es-hadoop-training/src/test/java/com/statefarm/es_hadoop/TestWordCount.java
+/home/training/workspace/es-hadoop-training/src/test/java/com/statefarm/es_hadoop/SumReducer.java
+/home/training/workspace/es-hadoop-training/src/test/java/com/statefarm/es_hadoop/AppTest.java
+/home/training/workspace/es-hadoop-training/src/test/java/com/statefarm/es_hadoop/StubTest.java
+/home/training/workspace/es-hadoop-training/src/test/java/com/statefarm/es_hadoop/WordMapper.java
