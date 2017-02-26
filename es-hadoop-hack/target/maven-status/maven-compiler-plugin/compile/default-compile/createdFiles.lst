@@ -1,8 +1,0 @@
-com/statefarm/hackday/AOAMapper.class
-com/statefarm/hackday/AOADriver.class
-com/statefarm/hackday/constant/InputFields.class
-com/statefarm/hackday/constant/CustomerProductFootPrint.class
-com/statefarm/hackday/AOAReducer.class
-com/statefarm/hackday/ElasticSearchbMapper.class
-com/statefarm/hackday/constant/OutputFields.class
-com/statefarm/hackday/constant/CustomerTypes.class

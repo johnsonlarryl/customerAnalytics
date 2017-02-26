@@ -1,8 +1,0 @@
-/home/training/workspace/customerAnalytics/es-hadoop-hack/src/main/java/com/statefarm/hackday/constant/OutputFields.java
-/home/training/workspace/customerAnalytics/es-hadoop-hack/src/main/java/com/statefarm/hackday/AOAReducer.java
-/home/training/workspace/customerAnalytics/es-hadoop-hack/src/main/java/com/statefarm/hackday/constant/InputFields.java
-/home/training/workspace/customerAnalytics/es-hadoop-hack/src/main/java/com/statefarm/hackday/constant/CustomerProductFootPrint.java
-/home/training/workspace/customerAnalytics/es-hadoop-hack/src/main/java/com/statefarm/hackday/AOAMapper.java
-/home/training/workspace/customerAnalytics/es-hadoop-hack/src/main/java/com/statefarm/hackday/AOADriver.java
-/home/training/workspace/customerAnalytics/es-hadoop-hack/src/main/java/com/statefarm/hackday/constant/CustomerTypes.java
-/home/training/workspace/customerAnalytics/es-hadoop-hack/src/main/java/com/statefarm/hackday/ElasticSearchbMapper.java

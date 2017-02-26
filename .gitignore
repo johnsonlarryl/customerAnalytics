@@ -8,6 +8,10 @@ tmp/
 local.properties
 .settings/
 .loadpath
+*.class
+*.jar
+
+target/
 
 # Eclipse Core
 .project

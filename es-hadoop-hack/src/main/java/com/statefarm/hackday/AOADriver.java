@@ -29,8 +29,10 @@ public class AOADriver extends Configured implements Tool {
     /*
      * Validate that two arguments were passed from the command line.
      */
+  	System.out.println("Length is: " + args.length);
+  	System.out.println("Argument is: " + args[0]);
     if (args.length != 2) {
-      System.out.printf("Usage: AOODriver <input dir> <output dir>\n");
+      System.out.printf("Usage: AOODriver <input file> <output dir>\n");
       System.exit(-1);
     } else {
     	inputputFile = args[0];
@@ -59,10 +61,9 @@ public class AOADriver extends Configured implements Tool {
     FileOutputFormat.setOutputPath(job, new Path(outputFile));
     
     job.setMapperClass(AOAMapper.class);
-//    job.setCombinerClass(AOAReducer.class);
     job.setReducerClass(AOAReducer.class);
     
-    job.setOutputKeyClass(Text.class);
+    job.setOutputKeyClass(LongWritable.class);
     job.setOutputValueClass(MapWritable.class);
   
 
@@ -92,18 +93,18 @@ public class AOADriver extends Configured implements Tool {
 	  String reduceDireOutputName = args[1];
 	  
 	  Configuration conf = this.getConf();
-	  conf.set("es.nodes",  "192.168.114.198:9200");
-	  conf.set("es.resource", "customerAnalytics/customers"); // index/type
+	  conf.set("es.nodes",  "192.168.1.223:9200");
+	  conf.set("es.resource", "customersdata/customers"); // index/type
 	    
 	  Job job = Job.getInstance(conf, "Elastic Search Map Job");
-	  
+
 	  job.setOutputKeyClass(Text.class);
 	  job.setOutputValueClass(MapWritable.class);
 	  job.setMapOutputValueClass(MapWritable.class);
 	  
 	  job.setJarByClass(AOADriver.class);
 	  
-	  job.setMapperClass(ElasticSearchbMapper.class);
+	  job.setMapperClass(ElasticSearchMapper.class);
 	  job.setOutputFormatClass(EsOutputFormat.class);
 	  
 	  FileInputFormat.addInputPath(job, new Path(reduceDireOutputName + "/part-r-00000"));
